@@ -29,9 +29,6 @@ jobs:
 
       - name: Build the project
         run:  npm run build --if-present
-
-      - name: Run tests
-        run:  npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-        
+            
       - name: Run lint
         run:  npm run lint
