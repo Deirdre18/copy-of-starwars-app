@@ -1,5 +1,22 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  
+  "packageRules": [
+    {
+      "updateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ],
+  
+  "timezone": "Europe/Madrid",
+  "schedule": [
+    "after 10am every weekday",
+    "before 10pm every weekday",
+    "every weekend"
+  ],
 }
