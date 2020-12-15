@@ -12,8 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 //Import the Social Sharing plugin 
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { Instagram } from '@ionic-native/instagram/ngx';
-
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +22,7 @@ import { Instagram } from '@ionic-native/instagram/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    SocialSharing,
-    Instagram
+    SocialSharing
   ],
   bootstrap: [AppComponent]
 })

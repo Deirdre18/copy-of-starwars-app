@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { tap } from 'rxjs/operators';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-films',
@@ -11,10 +12,28 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./films.page.scss'],
 })
 export class FilmsPage implements OnInit {
-
+  enabled = this.analyticsService.analyticsEnabled;
   films: Observable<any>;
 
-  constructor(private router: Router, private api: ApiService) { }
+  constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { }
+  
+  setUser() {
+   this.analyticsService.setUser();
+  }
+ 
+  setProperty() {
+    this.analyticsService.setProperty();
+  }
+ 
+  logEvent() {
+    this.analyticsService.logEvent();
+  }
+ 
+ 
+  toggleDataCollection() {
+    this.analyticsService.toggleAnalytics();
+    this.enabled = this.analyticsService.analyticsEnabled;
+  }
  
   ngOnInit() {
     this.films = this.api.getFilms().pipe(
