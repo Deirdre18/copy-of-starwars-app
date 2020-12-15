@@ -19,14 +19,9 @@
     "@angular/platform-browser": "10.2.3",
     "@angular/platform-browser-dynamic": "10.2.3",
     "@angular/router": "10.2.3",
-<<<<<<< HEAD
     "@capacitor-community/firebase-analytics": "^0.2.0",
     "@capacitor/android": "2.4.4",
     "@capacitor/core": "2.4.4",
-=======
-    "@capacitor/android": "2.4.5",
-    "@capacitor/core": "2.4.5",
->>>>>>> 4dfacbcdade3df9d3dc923bee99347acf2cfe1ca
     "@ionic-native/core": "5.30.0",
     "@ionic-native/instagram": "^5.30.0",
     "@ionic-native/social-sharing": "5.30.0",
@@ -43,11 +38,7 @@
     "zone.js": "0.11.3"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@angular-devkit/build-angular": "0.1100.3",
-=======
-    "@angular-devkit/build-angular": "0.1100.4",
->>>>>>> 4dfacbcdade3df9d3dc923bee99347acf2cfe1ca
     "@angular/cli": "10.2.0",
     "@angular/compiler": "10.2.3",
     "@angular/compiler-cli": "10.2.3",
@@ -77,11 +68,7 @@
     "karma-jasmine-html-reporter": "1.5.4",
     "protractor": "7.0.0",
     "serialize-javascript": "5.0.1",
-<<<<<<< HEAD
     "ts-node": "9.1.0",
-=======
-    "ts-node": "9.1.1",
->>>>>>> 4dfacbcdade3df9d3dc923bee99347acf2cfe1ca
     "tslint": "6.1.3",
     "typescript": "4.0.5"
   },
