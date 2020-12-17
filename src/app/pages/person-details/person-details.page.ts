@@ -1,3 +1,5 @@
+// Referred to tutorials from https://ionicacademy.com/ionic-crash-course/
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
