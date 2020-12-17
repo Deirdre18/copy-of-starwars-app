@@ -41,7 +41,6 @@ export class FilmDetailsPage implements OnInit {
     this.analyticsService.logEvent();
   }
  
- 
   toggleDataCollection() {
     this.analyticsService.toggleAnalytics();
     this.enabled = this.analyticsService.analyticsEnabled;

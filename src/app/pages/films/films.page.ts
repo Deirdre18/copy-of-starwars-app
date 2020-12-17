@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
@@ -28,8 +27,7 @@ export class FilmsPage implements OnInit {
   logEvent() {
     this.analyticsService.logEvent();
   }
- 
- 
+  
   toggleDataCollection() {
     this.analyticsService.toggleAnalytics();
     this.enabled = this.analyticsService.analyticsEnabled;

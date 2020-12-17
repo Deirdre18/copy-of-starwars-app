@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
-// IMPORT SOCIAL SHARING.
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-person-details',
@@ -11,6 +11,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
   styleUrls: ['./person-details.page.scss'],
 })
 export class PersonDetailsPage implements OnInit {
+  enabled = this.analyticsService.analyticsEnabled;
   subject: string='Check out all your favorite Characters from Starwars!'
   text: string='Check out your favorite Characters from Starwars!'
   imgurl:string='https://i.pinimg.com/564x/3d/7c/11/3d7c118d7e4ea4a8c9bac277873c7e54.jpg'
@@ -26,8 +27,25 @@ export class PersonDetailsPage implements OnInit {
   }
     
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing) { }
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
+
+    setUser() {
+      this.analyticsService.setUser();
+     }
     
+     setProperty() {
+       this.analyticsService.setProperty();
+     }
+    
+     logEvent() {
+       this.analyticsService.logEvent();
+     }
+    
+     toggleDataCollection() {
+       this.analyticsService.toggleAnalytics();
+       this.enabled = this.analyticsService.analyticsEnabled;
+     }
+   
     ngOnInit() {
       this.personId = this.activatedRoute.snapshot.paramMap.get('id');
       this.api.getPerson(this.personId).subscribe(res => {
