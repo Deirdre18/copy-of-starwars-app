@@ -1,8 +1,11 @@
+// Referred to tutorials from https://ionicacademy.com/ionic-crash-course/
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-starship-details',
@@ -10,6 +13,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
   styleUrls: ['./starship-details.page.scss'],
 })
 export class StarshipDetailsPage implements OnInit {
+    enabled = this.analyticsService.analyticsEnabled;
     subject: string='Check out all your favorite Starships from Starwars!'
     text: string='Check out all your favorite Starships from Starwars!'
     imgurl:string='https://i.pinimg.com/564x/07/02/f9/0702f9c8beb32202d41c9796aa42b42a.jpg'
@@ -23,9 +27,10 @@ export class StarshipDetailsPage implements OnInit {
       const text = parameter+'\n'
       this.socialSharing.share(this.subject, null, url,this.link)
     }
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing) { }
-     
+
+ constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
+      
   ngOnInit() {
     this.starshipId = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getStarship(this.starshipId).subscribe(res => {

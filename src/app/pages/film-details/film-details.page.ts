@@ -1,8 +1,11 @@
+// Referred to tutorials from https://ionicacademy.com/ionic-crash-course/
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-film-details',
@@ -10,7 +13,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
   styleUrls: ['./film-details.page.scss'],
 })
 export class FilmDetailsPage implements OnInit {
-
+  enabled = this.analyticsService.analyticsEnabled;
   film: any;
   isFavorite = false;
   filmId = null;
@@ -24,10 +27,10 @@ export class FilmDetailsPage implements OnInit {
     const subject = parameter+'\n'
     this.socialSharing.share(this.subject, url,this.link)
   }
-
+  
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing) { }
- 
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
+   
   ngOnInit() {
     this.filmId = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getFilm(this.filmId).subscribe(res => {

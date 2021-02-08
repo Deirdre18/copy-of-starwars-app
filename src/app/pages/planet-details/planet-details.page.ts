@@ -1,8 +1,12 @@
+// Referred to tutorials from https://ionicacademy.com/ionic-crash-course/
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AnalyticsService } from 'src/app/services/analytics.service';
+
 
 @Component({
   selector: 'app-planet-details',
@@ -10,6 +14,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
   styleUrls: ['./planet-details.page.scss'],
 })
 export class PlanetDetailsPage implements OnInit {
+  enabled = this.analyticsService.analyticsEnabled;
   subject: string='Check out all your favorite Planets from Starwars!'
   text: string='Check out all your favorite Planets from Starwars!'
   imgurl:string='https://i.pinimg.com/564x/27/ce/0b/27ce0b906d4a11415fa8e1b0ceec7422.jpg'
@@ -23,9 +28,10 @@ export class PlanetDetailsPage implements OnInit {
     const text = parameter+'\n'
     this.socialSharing.share(this.subject, null, url,this.link)
   }
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing) { }
-     
+ 
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
+      private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
+      
   ngOnInit() {
     this.planetId = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getPlanet(this.planetId).subscribe(res => {
