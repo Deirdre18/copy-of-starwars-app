@@ -29,8 +29,25 @@ export class PersonDetailsPage implements OnInit {
   }
     
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }  
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
+
+    setUser() {
+      this.analyticsService.setUser();
+     }
     
+     setProperty() {
+       this.analyticsService.setProperty();
+     }
+    
+     logEvent() {
+       this.analyticsService.logEvent();
+     }
+    
+     toggleDataCollection() {
+       this.analyticsService.toggleAnalytics();
+       this.enabled = this.analyticsService.analyticsEnabled;
+     }
+   
     ngOnInit() {
       this.personId = this.activatedRoute.snapshot.paramMap.get('id');
       this.api.getPerson(this.personId).subscribe(res => {

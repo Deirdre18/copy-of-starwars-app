@@ -17,7 +17,24 @@ export class PlanetsPage implements OnInit {
   planets: Observable<any>;
 
   constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { }
-   
+  
+  setUser() {
+   this.analyticsService.setUser();
+  }
+ 
+  setProperty() {
+    this.analyticsService.setProperty();
+  }
+ 
+  logEvent() {
+    this.analyticsService.logEvent();
+  }
+  
+  toggleDataCollection() {
+    this.analyticsService.toggleAnalytics();
+    this.enabled = this.analyticsService.analyticsEnabled;
+  }
+ 
   ngOnInit() {
     this.planets = this.api.getPlanets().pipe(
       tap(r => console.log(r))
