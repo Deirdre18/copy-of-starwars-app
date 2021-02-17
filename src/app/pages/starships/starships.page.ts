@@ -17,24 +17,7 @@ export class StarshipsPage implements OnInit {
   enabled = this.analyticsService.analyticsEnabled;
   starships: Observable<any>;
 
-  constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { }
-  
-  setUser() {
-   this.analyticsService.setUser();
-  }
- 
-  setProperty() {
-    this.analyticsService.setProperty();
-  }
- 
-  logEvent() {
-    this.analyticsService.logEvent();
-  }
-  
-  toggleDataCollection() {
-    this.analyticsService.toggleAnalytics();
-    this.enabled = this.analyticsService.analyticsEnabled;
-  }
+  constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { }  
   
   ngOnInit() {
     this.starships = this.api.getStarships().pipe(
