@@ -29,31 +29,13 @@ export class PersonDetailsPage implements OnInit {
   }
     
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
-
-    setUser() {
-      this.analyticsService.setUser();
-     }
-    
-     setProperty() {
-       this.analyticsService.setProperty();
-     }
-    
-     logEvent() {
-       this.analyticsService.logEvent();
-     }
-    
-     toggleDataCollection() {
-       this.analyticsService.toggleAnalytics();
-       this.enabled = this.analyticsService.analyticsEnabled;
-     }
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }    
    
     ngOnInit() {
       this.personId = this.activatedRoute.snapshot.paramMap.get('id');
       this.api.getPerson(this.personId).subscribe(res => {
         this.person = res;
-      });
-  
+      });  
 
     this.favoriteService.isFavorite1(this.personId).then(isFav => {
       this.isFavorite1 = isFav;

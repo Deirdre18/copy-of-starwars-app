@@ -29,24 +29,7 @@ export class FilmDetailsPage implements OnInit {
   }
   
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }
-  
-  setUser() {
-   this.analyticsService.setUser();
-  }
- 
-  setProperty() {
-    this.analyticsService.setProperty();
-  }
- 
-  logEvent() {
-    this.analyticsService.logEvent();
-  }
- 
-  toggleDataCollection() {
-    this.analyticsService.toggleAnalytics();
-    this.enabled = this.analyticsService.analyticsEnabled;
-  }
+    private favoriteService: FavoriteService, private socialSharing: SocialSharing, private analyticsService: AnalyticsService) { }  
  
   ngOnInit() {
     this.filmId = this.activatedRoute.snapshot.paramMap.get('id');

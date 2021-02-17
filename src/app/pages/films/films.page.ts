@@ -16,24 +16,7 @@ export class FilmsPage implements OnInit {
   enabled = this.analyticsService.analyticsEnabled;
   films: Observable<any>;
 
-  constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { }
-  
-  setUser() {
-   this.analyticsService.setUser();
-  }
- 
-  setProperty() {
-    this.analyticsService.setProperty();
-  }
- 
-  logEvent() {
-    this.analyticsService.logEvent();
-  }
-  
-  toggleDataCollection() {
-    this.analyticsService.toggleAnalytics();
-    this.enabled = this.analyticsService.analyticsEnabled;
-  }
+  constructor(private router: Router, private api: ApiService, private analyticsService: AnalyticsService) { } 
  
   ngOnInit() {
     this.films = this.api.getFilms().pipe(
