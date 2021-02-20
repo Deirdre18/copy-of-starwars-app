@@ -5,7 +5,7 @@
 :root {
   --ion-background-color: linear-gradient( 113.3deg,  rgba(217,9,27,1) 6.9%, rgba(22,68,150,1) 75% );
   --ion-text-color: #fff;
-  --ion-tab-bar-background:linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);;
+  --ion-tab-bar-background:linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
 
   ion-tab-button {
     --color-selected: #250713;
@@ -39,8 +39,6 @@
   --ion-color-danger: #f53d3d;
   --ion-color-danger-shade: #d83636;
   }
-
-
 
   .film, .release, .story {
     color:  #ffcc00;
