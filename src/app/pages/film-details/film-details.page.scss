@@ -3,10 +3,14 @@
 }
 
 .movie-info {
-    --background: #4a4a4a;
+    --background: #250713;
 }
 
-ion-title {--color: #ffcc00;}
+#color {--background:linear-gradient(90deg, #998186 0%, #3F5EFB 100%);}
+#fav {color: #250713;}
+#unfav {color: #250713;}
+
+ion-title {--color: #250713;}
 
 .ion-justify-content-center{
     text-align: center;
