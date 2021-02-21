@@ -1,20 +1,22 @@
-.starship-card {    
+.person-card {    
     --border: 1px solid var(--ion-color-secondary);
 }
 
-.starship-info {
-    --background: #4a4a4a;
+.person-info {
+    --background: #250713;
 }
 
-ion-title {--color: #ffcc00;}
-  
+#color {--background:linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);}
+
+ion-title {--color: #250713;}
+
 .ion-justify-content-center{
     text-align: center;
 }
 
 .login {text-align:center;}
 
+a {text-align:center;}
 
 
 
-    
