@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar id="color">
-    <ion-buttons slot="start" defaultHref="/tabs/people">
+    <ion-buttons slot="start" defaultHref="/tabs/starships">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{person?.name }}</ion-title>
+    <ion-title>{{starship?.name }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="unfavoritePerson()" *ngIf="isFavorite1">
+      <ion-button (click)="unfavoriteStarship()" *ngIf="isFavorite3">
         <ion-icon name="star" slot="icon-only" color="warning"></ion-icon>
       </ion-button>
-      <ion-button (click)="favoritePerson()" *ngIf="!isFavorite1">
+      <ion-button (click)="favoriteStarship()" *ngIf="!isFavorite3">
         <ion-icon name="star-outline" slot="icon-only" color="warning"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -17,136 +17,140 @@
 
 <ion-content padding>
 
-  <ion-card *ngIf="person" class="movie-card">
+  <ion-card *ngIf="starship" class="starship-card">
   
     <div style="text-align:center">
-      <a href="https://www.starwars.com/search?q=characters" style="color: #250713"><em><strong><u>Search </u></strong>Starwars People Databank</em></a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+      <a href="https://www.starwars.com/search?q=starships" style="color: #250713"><em><strong><u>Search </u></strong>Starwars Starship Databank</em></a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
     </div>   
     
-    <ion-item class="person-card" lines="none">
-      <ion-icon name="transgender-outline" size="small" color="warning" slot="start"></ion-icon>
-      <ion-grid>
-        <ion-row>
-
-          <ion-col col-12 col-sm>
-            <div>Gender:</div>
-          </ion-col>
-
-          <ion-col size="12">
-
-            <div>{{ person.gender }}</div>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item class="person-info" lines="none">
-      <ion-icon name="color-filter-outline" size="small" color="warning" slot="start"></ion-icon>
+    <ion-item class="starship-card" lines="none">
+      <ion-icon name="star-half-outline" size="small" color="warning" slot="start"></ion-icon>
       <ion-grid>
         <ion-row>
           <ion-col size="12">
-
-            <div>Eye Color:</div>
+            <div>Hyperdrive Rating:</div>
           </ion-col>
-
+          
           <ion-col size="12">
-
-            <div>{{ person.eye_color }}</div>
+            <div>{{ starship.hyperdrive_rating}}</div>
           </ion-col>
-
+         
         </ion-row>
       </ion-grid>
     </ion-item>
-
-    <ion-item class="person-card" lines="none">
-      <ion-icon name="color-filter-outline" size="small" color="warning" slot="start"></ion-icon>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-
-            <div>Hair Color:</div>
-          </ion-col>
-
-          <ion-col col-12 col-sm>
-            <div>{{ person.hair_color }}</div>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item class="person-info" lines="none">
-      <ion-icon name="color-filter-outline" size="small" color="warning" slot="start"></ion-icon>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-
-            <div>Skin Color:</div>
-          </ion-col>
-
-          <ion-col col-12 col-sm>
-            <div>{{ person.skin_color }}</div>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-
-    <ion-item class="person-card" lines="none">
-      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-
-            <div>Height:</div>
-          </ion-col>
-
-          <ion-col size="12">
-
-            <div>{{ person.height }}</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item class="person-info" lines="none">
-      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
-      <ion-grid>
-        <ion-row>
-
-          <ion-col size="12">
-            <div>Mass:</div>
-          </ion-col>
-
-          <ion-col col-12 col-sm>
-            <div>{{ person.mass }}</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-
-    <ion-item class="person-card" lines="none">
+  
+    <ion-item class="starship-info" lines="none">
       <ion-icon name="people-outline" size="small" color="warning" slot="start"></ion-icon>
       <ion-grid>
         <ion-row>
           <ion-col size="12">
-
-            <div>Year of Birth:</div>
+            <div>Passengers:</div>
           </ion-col>
-
-          <ion-col col-12 col-sm>
-            <div>{{ person.birth_year }}</div>
+          
+          <ion-col size="12">
+            <div>{{ starship.passengers }}</div>
           </ion-col>
-
+         
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-item class="starship-card" lines="none">
+      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Maximum Speed:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.max_atmosphering_speed }}</div>
+          </ion-col>       
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    
+    <ion-item class="starship-info" lines="none">
+      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Cargo Capacity:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.cargo_capacity }}</div>
+          </ion-col>
+         
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-item class="starship-card" lines="none">
+      <ion-icon name="star-half-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Class:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.starship_class }}</div>
+          </ion-col>       
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-item class="starship-info" lines="none">
+      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Cost in Credits:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.cost_in_credits }}</div>
+          </ion-col>
+         
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-item class="starship-card" lines="none">
+      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Length:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.length }}</div>
+          </ion-col>       
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  
+    <ion-item class="starship-info" lines="none">
+      <ion-icon name="calculator-outline" size="small" color="warning" slot="start"></ion-icon>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div>Consumables:</div>
+          </ion-col>
+          
+          <ion-col size="12">
+            <div>{{ starship.consumables }}</div>
+          </ion-col>
+        
         </ion-row>
       </ion-grid>
     </ion-item>
     
     <br>
     <div class="login">
-      <a href="https://www.starwars.com/search?q=characters" style="color: #250713"><em><strong><u>View </u></strong>more Starwars People</em></a>
+      <a href="https://www.starwars.com/search?q=starships" style="color: #250713"><em><strong><u>View </u></strong>more Starwars Starships</em></a>
       <br><br>
       <ion-img style="height: 200px; width:100%" [src]="imgurl"></ion-img><br>
       <em>Please login into your favorite apps to share</em>
